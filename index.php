@@ -1,3 +1,12 @@
+<?php
+require 'init.php';
+if( ! is_user_login() ){
+    redirect( 'login.php' );
+}
+$user = current_user();
+$full_name  = $user['first_name'] . ' ' . $user['last_name'];
+$phone      = $user['phone'];
+?>
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -16,10 +25,10 @@
             <div class="profile align-center">
                 <img src="images/hamedmoody.jpg" alt="Hamed" width="256" height="256">
                 <p class="user-full-name">
-                    حامد مودی
+                    <?php echo $full_name;?>
                 </p>
                 <p class="user-phone">
-                    09123456789
+                    <?php echo $phone;?>
                 </p>
             </div>
             <nav class="menu">
@@ -51,7 +60,7 @@
                     </svg>
                     لیست وظایف
                 </a>
-                <a href="login.html">
+                <a href="index.php?action=logout" onclick="return confirm('Sure')">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20.5" height="20.53" viewBox="0 0 20.5 20.53">
                         <g id="logout" transform="translate(-1.75 -1.74)">
                             <path id="Path_77" data-name="Path 77" d="M15.24,22.27h-.13a7.638,7.638,0,0,1-4.952-1.332A5.929,5.929,0,0,1,8.163,16.6a.75.75,0,0,1,1.494-.139,4.481,4.481,0,0,0,1.438,3.306,6.375,6.375,0,0,0,4.015,1h.13c2.075,0,3.434-.392,4.276-1.234s1.234-2.2,1.234-4.276V13a.75.75,0,1,1,1.5,0v2.26c0,2.5-.532,4.195-1.673,5.337S17.739,22.27,15.24,22.27Z" fill="#fff"/>

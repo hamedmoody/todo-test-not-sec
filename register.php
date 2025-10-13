@@ -1,5 +1,8 @@
 <?php
 require( 'init.php' );
+if( is_user_login() ){
+    redirect( 'index.php' );
+}
 ?>
 <!DOCTYPE html>
 <html lang="fa">

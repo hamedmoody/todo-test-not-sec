@@ -67,3 +67,23 @@ function db_update( $table, $data, $where ){
 
 }
 
+function db(){
+    global $db;
+    return $db;
+}
+
+function db_get_row( $sql ){
+    
+    $result = mysqli_query( db(), $sql );
+
+    if( ! $result ){
+        return false;
+    }
+
+    if( ! $result->num_rows ){
+        return false;
+    }
+
+    return mysqli_fetch_assoc( $result );
+
+}
