@@ -43,3 +43,15 @@ if( isset( $_POST['login'] ) ){
 if( isset( $_GET['action'] ) && $_GET['action'] == 'logout' ){
     user_logout();
 }
+
+if( isset( $_POST['save_task'] ) && is_user_login() ){
+
+    $title      = $_POST['title'];
+    $status     = $_POST['status'];
+    $progress   = $_POST['progress'];
+    $date       = $_POST['date'];
+
+    $task_id    = insert_task( $title, $status, $progress, $date );
+
+
+}

@@ -1,5 +1,11 @@
 <?php
 
+function db_log( $log ){
+    $log_file = 'db-error.txt';
+    $text       = current_date() . ': ' . $log . PHP_EOL;
+    file_put_contents( $log_file, $text, FILE_APPEND );
+}
+
 function db_insert( $table, $data ){
     //INSERT INTO producsts ( title, price ) VALUES ( 'Laptop', '5000' ) 
     global $db;
@@ -24,11 +30,15 @@ function db_insert( $table, $data ){
 
     $sql.= ' )';
     
-    $inserted = mysqli_query( $db, $sql );
+    $inserted = @mysqli_query( $db, $sql );
 
     if( $inserted ){
         return mysqli_insert_id( $db );
     }
+
+    $error = mysqli_error( $db );
+    db_log( $error . ' => SQL: ' . $sql  );
+    print_r( $error );exit;
 
     return false;
 
