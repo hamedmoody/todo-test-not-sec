@@ -1,3 +1,5 @@
 2025-10-18 17:32:02: Unknown column 'date' in 'field list'
 2025-10-18 17:32:47: Unknown column 'date' in 'field list'40
 2025-10-18 17:33:37: Unknown column 'date' in 'field list' => SQL: INSERT INTO tasks( title, status, progress, date, user_id, created_at, updated_at )  VALUES ( 'sdasdfasdf','doing','15','2025','1','2025-10-18 17:33:37','2025-10-18 17:33:37' )
+2025-10-20 17:24:58: Access denied for user 'rootd'@'localhost' (using password: YES)
+2025-10-20 18:24:08: Incorrect date value: '' for column 'to_time' at row 1 => SQL: INSERT INTO tasks( title, status, progress, to_time, user_id, created_at, updated_at )  VALUES ( '','queue','0','','1','2025-10-20 18:24:08','2025-10-20 18:24:08' )

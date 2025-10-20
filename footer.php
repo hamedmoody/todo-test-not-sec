@@ -1,3 +1,5 @@
-    <script>console.log('Test script');</script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/script.js?ver=<?php echo time();?>"></script>
 </body>
 </html>

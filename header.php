@@ -6,6 +6,10 @@ if( ! is_user_login() ){
 $user       = current_user();
 $full_name  = $user['first_name'] . ' ' . $user['last_name'];
 $phone      = $user['phone'];
+
+$options = [
+    'timer' => 15
+];
 ?>
 <!DOCTYPE html>
 <html lang="fa">
@@ -25,5 +29,6 @@ $phone      = $user['phone'];
     </title>
     <link rel="stylesheet" href="https://dl.daneshjooyar.com/mvie/Moodi_Hamed/assets/css/font-yekanbakh-vf.css">
     <link rel="stylesheet" href="css/panel.css">
+    <script>var options = <?php echo json_encode( $options );?></script>
 </head>
 <body>

@@ -2,8 +2,14 @@
 date_default_timezone_set( 'Asia/Tehran' );
 session_start();
 
+include( 'db_functions.php' );
 mysqli_report( MYSQLI_REPORT_ERROR );
-$db = mysqli_connect( 'localhost', 'root', '', 'todo' );
+$db = @mysqli_connect( 'localhost', 'root', '', 'todo' );
+if( ! $db ){
+    db_log( mysqli_connect_error() );
+    include( 'db-error.php' );
+    exit;
+}
 
 $success    = '';
 $error      = '';
@@ -14,7 +20,7 @@ $error      = '';
 //exit;
 
 include( 'libs/jdf.php' );
-include( 'db_functions.php' );
+
 include( 'include/functions.php' );
 include( 'include/functions-user.php' );
 include( 'include/functions-task.php' );

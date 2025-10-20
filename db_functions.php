@@ -2,7 +2,7 @@
 
 function db_log( $log ){
     $log_file = 'db-error.txt';
-    $text       = current_date() . ': ' . $log . PHP_EOL;
+    $text       = date( 'Y-m-d H:i:s' ) . ': ' . $log . PHP_EOL;
     file_put_contents( $log_file, $text, FILE_APPEND );
 }
 
@@ -38,7 +38,6 @@ function db_insert( $table, $data ){
 
     $error = mysqli_error( $db );
     db_log( $error . ' => SQL: ' . $sql  );
-    print_r( $error );exit;
 
     return false;
 
